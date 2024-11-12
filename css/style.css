@@ -9966,6 +9966,7 @@ textarea.form-control {
       position: relative;
       height: 180vh; /* Make sure the video section takes the full viewport height */
     }
+
     
     .hero-wrap .video-fluid {
       position: absolute;
@@ -10227,4 +10228,13 @@ button[type="button"].close-btn {
 
 button[type="button"].close-btn:hover {
     background-color: #e53935;
+}
+@media (max-width: 768px) {
+  .hero-wrap.hero-wrap-2 {
+    height:294px !important;
+    position: relative;
+  }
+  .herotxt {
+    margin-bottom: 262px; 
+  }
 }
