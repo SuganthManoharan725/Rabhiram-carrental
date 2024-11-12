@@ -1,0 +1,293 @@
+cars:
+  - name: "Swift Dzire"
+    image_url: "images/cars-images/car1.webp"
+    rating: 4.7
+    price: 2500
+    hoursrate:
+      - label: "08hr"
+        value: "1500rs"
+      - label: "12hr"
+        value: "2000rs"
+      - label: "Full Day"
+        value: "2500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "SEDAN"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "37L"
+        icon: "fas fa-fire"
+    booking_options:
+      message_phone: "tel:+91 9791720689"
+    
+# ---------------------------------------
+
+  - name: "Swift Dzire - Sedan"
+    image_url: "images/cars-images/car2.webp"
+    rating: 4.7
+    price: 2500
+    hoursrate:
+      - label: "08hr"
+        value: "1500rs"
+      - label: "12hr"
+        value: "2000rs"
+      - label: "Full Day"
+        value: "2500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "SEDAN"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "37L"
+        icon: "fas fa-fire"
+    booking_options: 
+      message_phone: "tel:+91 9791720689"
+    
+# ---------------------------------------
+
+  - name: "Hyundai i20(Manual 2017 Petrol)"
+    image_url: "images/cars-images/car3.webp"
+    rating: 4.7
+    price: 2500
+    hoursrate:
+      - label: "08hr"
+        value: "1500rs"
+      - label: "12hr"
+        value: "2000rs"
+      - label: "Full Day"
+        value: "2500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "Hatchback"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "45L"
+        icon: "fas fa-fire"
+    booking_options:
+      message_phone: "tel:+91 9791720689"
+    
+# ---------------------------------------
+
+  - name: "Hyundai i20 - Premium Hatchback"
+    image_url: "images/cars-images/car4.webp"
+    rating: 4.7
+    price: 2500
+    hoursrate:
+      - label: "08hr"
+        value: "1500rs"
+      - label: "12hr"
+        value: "2000rs"
+      - label: "Full Day"
+        value: "2500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "Hatchback"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "45L"
+        icon: "fas fa-fire"
+    booking_options:
+        message_phone: "tel:+91 9791720689"
+    
+# ---------------------------------------
+
+  - name: "Mahindra Scorpio - SUV"
+    image_url: "images/cars-images/car5.webp"
+    rating: 4.7
+    price: 3500
+    hoursrate:
+      - label: "08hr"
+        value: "3500rs"
+      - label: "12hr"
+        value: "3000rs"
+      - label: "Full Day"
+        value: "3500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "SUV"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 7
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 5
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "60L"
+        icon: "fas fa-fire"
+    booking_options:  
+      message_phone: "tel:+91 9791720689"
+
+# ---------------------------------------
+
+
+  - name: "Maruti Brezza - SUV"
+    image_url: "images/cars-images/car6.webp"
+    rating: 4.7
+    price: 3200
+    hoursrate:
+      - label: "08hr"
+        value: "2200rs"
+      - label: "12hr"
+        value: "2700rs"
+      - label: "Full Day"
+        value: "3200rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "SUV"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "48L"
+        icon: "fas fa-fire"
+    booking_options:
+      message_phone: "tel:+91 9791720689"
+
+ # ---------------------------------------
+  
+
+  - name: "Kia Carens - MUV"
+    image_url: "images/cars-images/car7.webp"
+    rating: 4.7
+    price: 4000
+    hoursrate:
+      - label: "08hr"
+        value: "3000rs"
+      - label: "12hr"
+        value: "3500rs"
+      - label: "Full Day"
+        value: "4000rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "MUV"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 7
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "50L"
+        icon: "fas fa-fire"
+    booking_options: 
+      message_phone: "tel:+91 9791720689"
+    
+# ---------------------------------------
+
+  - name: "Renault Kwid Climber"
+    image_url: "images/cars-images/car8.webp"
+    rating: 4.7
+    price: 2500
+    hoursrate:
+      - label: "08hr"
+        value: "1500rs"
+      - label: "12hr"
+        value: "2000rs"
+      - label: "Full Day"
+        value: "2500rs"
+    details:
+      - label: "08hr"
+        value: "100kms"
+      - label: "12hr"
+        value: "200kms"
+      - label: "24hr"
+        value: "300kms"
+    carfacility:
+      - label: "Type"
+        value: "MUV"
+        icon: "fas fa-car"
+      - label: "Seats"
+        value: 5
+        icon: "fas fa-users"
+      - label: "Luggage"
+        value: 3
+        icon: "fas fa-suitcase"
+      - label: "Petrol"
+        value: "28L"
+        icon: "fas fa-fire"
+    booking_options:
+      message_phone: "tel:+91 9791720689"
+    
+
+  
+  
+      
