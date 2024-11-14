@@ -10139,7 +10139,7 @@ textarea.form-control {
 	/* Style for the form inputs */
 	.popup-form input, .popup-form select, .popup-form button {
 		width: 100%;
-		padding: 10px;
+		padding: 6px;
 		margin: 10px 0;
 		border-radius: 4px;
 		border: 1px solid #ddd;
@@ -10249,6 +10249,15 @@ button[type="button"].close-btn:hover {
 }
 .slider-text {
   height: 590px;
+}
+.form-control {
+  height: 35px !important;
+  background: #fff !important;
+  color: #000000 !important;
+  font-size: 13px;
+  border-radius: 5px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 }
 

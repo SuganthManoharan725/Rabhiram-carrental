@@ -268,93 +268,93 @@
     
   </div>
 
-        <div class="form-section p-4" id="popupFormContent">
-            <form id="bookingForm">
-                <!-- Static Form Fields (structure remains the same for all cars) -->
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="aadhar" class="form-label">Aadhar Number</label>
-                    <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="Enter your Aadhar number" required>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-
-                <div class="mb-3">
-                  <label for="drivingLicense" class="form-label">Driving License</label>
-                  <input type="file" class="form-control" id="drivingLicense-file" name="drivingLicense" accept=".jpg,.jpeg,.png,.pdf" required>
-              </div>
-          
-              <div class="mb-3">
-                  <label for="aadhar-file" class="form-label">Upload Aadhar PDF</label>
-                  <input type="file" class="form-control" id="aadhar-file" name="aadharFile" accept=".jpg,.jpeg,.png,.pdf" required>
-              </div>
-          
-              <div class="mb-3">
-                  <label for="pan-file" class="form-label">Upload PAN PDF</label>
-                  <input type="file" class="form-control" id="pan-file" name="panFile" accept=".jpg,.jpeg,.png,.pdf" required>
-              </div>
-
-              <div class="mb-3">
-                <label for="carName" class="form-label">Car Name</label>
-                <select class="form-select" id="carName" name="carName" required>
-                  <option value="Swift Dzire">Swift Dzire</option>
-                  <option value="Swift Dzire - Sedan">Swift Dzire -  Sedan</option>
-                  <option value="Hyundai i20">Hyundai i20</option>
-                  <option value="Hyundai i20 - Premium">Hyundai i20 - Premium</option>
-                  <option value="Mahindra Scorpio - SUV">Mahindra Scorpio - SUV</option>                   
-                  <option value="Maruti Brezza - SUV">Maruti Brezza - SUV</option>
-                  <option value="Kia Carens - MUV">Kia Carens - MUV</option>
-                  <option value="Renauld Kwid Climber">Renauld Kwid Climber</option>
-                  <option value="Other">Other</option>
-                </select>
+      <div class="form-section p-4" id="popupFormContent">
+        <form id="bookingForm">
+            <!-- Static Form Fields (structure remains the same for all cars) -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="aadhar" class="form-label">Aadhar Number</label>
+                <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="Enter your Aadhar number" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
             </div>
 
-                <div class="mb-3">
-                    <label for="pickupDate" class="form-label">Pickup Date</label>
-                    <input type="date" class="form-control" id="pickupDate" name="pickupDate" required>
-                </div>
-                <div class="mb-3">
-                    <label for="dropDate" class="form-label">Drop Date</label>
-                    <input type="date" class="form-control" id="dropDate" name="dropDate" required>
-                </div>
-                <div class="mb-3">
-                    <label for="pickupTime" class="form-label">Pickup Time</label>
-                    <input type="time" class="form-control" id="pickupTime" name="pickupTime" required>
-                </div>
-              
-                <div class="mb-3">
-                  <label for="dropTime" class="form-label">Drop-off time</label>
-                  <input type="time" class="form-control" id="dropTime" name="dropTime" required>
-              </div>
-          
-              <div class="mb-3">
-                  <label for="estimate-amount" class="form-label">Estimated Amount</label>
-                  <input type="text" class="form-control" id="estimate-amount" name="estimatedAmount" readonly>
-              </div>
+            <div class="mb-3">
+              <label for="drivingLicense" class="form-label">Driving License</label>
+              <input type="file" class="form-control" id="drivingLicense-file" name="drivingLicense" accept=".jpg,.jpeg,.png,.pdf" required>
+          </div>
+      
+          <div class="mb-3">
+              <label for="aadhar-file" class="form-label">Upload Aadhar PDF</label>
+              <input type="file" class="form-control" id="aadhar-file" name="aadharFile" accept=".jpg,.jpeg,.png,.pdf" required>
+          </div>
+      
+          <div class="mb-3">
+              <label for="pan-file" class="form-label">Upload PAN PDF</label>
+              <input type="file" class="form-control" id="pan-file" name="panFile" accept=".jpg,.jpeg,.png,.pdf" required>
+          </div>
 
-            </form>
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
-                <button type="button" class="btn btn-danger" id="closeBtn">Close</button>
-            </div>
-            <!-- Success Message -->
-            <div id="PopupAppointmentsuccessMessage" style="display:none; color: #fff;">
-              Car booked successfully! We will get back to you shortly.
-            </div>
-            <!-- Error Message -->
-            <div id="PopupAppointmenterrorMessage" style="display:none; color: #dc3545;">
-              There was an error booking your car. Please try again later.
-            </div>
+          <div class="mb-3">
+            <label for="carName" class="form-label">Car Name</label>
+            <select class="form-select" id="carName" name="carName" required>
+              <option value="Swift Dzire">Swift Dzire</option>
+              <option value="Swift Dzire - Sedan">Swift Dzire -  Sedan</option>
+              <option value="Hyundai i20">Hyundai i20</option>
+              <option value="Hyundai i20 - Premium">Hyundai i20 - Premium</option>
+              <option value="Mahindra Scorpio - SUV">Mahindra Scorpio - SUV</option>                   
+              <option value="Maruti Brezza - SUV">Maruti Brezza - SUV</option>
+              <option value="Kia Carens - MUV">Kia Carens - MUV</option>
+              <option value="Renauld Kwid Climber">Renauld Kwid Climber</option>
+              <option value="Other">Other</option>
+            </select>
         </div>
+
+            <div class="mb-3">
+                <label for="pickupDate" class="form-label">Pickup Date</label>
+                <input type="date" class="form-control" id="pickupDate" name="pickupDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="dropDate" class="form-label">Drop Date</label>
+                <input type="date" class="form-control" id="dropDate" name="dropDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="pickupTime" class="form-label">Pickup Time</label>
+                <input type="time" class="form-control" id="pickupTime" name="pickupTime" required>
+            </div>
+          
+            <div class="mb-3">
+              <label for="dropTime" class="form-label">Drop-off time</label>
+              <input type="time" class="form-control" id="dropTime" name="dropTime" required>
+          </div>
+      
+          <div class="mb-3">
+              <label for="estimate-amount" class="form-label">Estimated Amount</label>
+              <input type="text" class="form-control" id="estimate-amount" name="estimatedAmount" readonly>
+          </div>
+
+        </form>
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
+            <button type="button" class="btn btn-danger" id="closeBtn">Close</button>
+        </div>
+        <!-- Success Message -->
+        <div id="PopupAppointmentsuccessMessage" style="display:none; color: #fff;">
+          Car booked successfully! We will get back to you shortly.
+        </div>
+        <!-- Error Message -->
+        <div id="PopupAppointmenterrorMessage" style="display:none; color: #dc3545;">
+          There was an error booking your car. Please try again later.
+        </div>
+    </div>
       </div>
               
           </div>
@@ -366,7 +366,7 @@
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_1.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.webp);">
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
@@ -421,7 +421,7 @@
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-intro" style="background-image: url(images/bg_1.webp);">
+		<section class="ftco-section ftco-intro" style="background-image: url(images/bg_2.webp);">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-end">

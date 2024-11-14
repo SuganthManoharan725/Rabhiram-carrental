@@ -15,86 +15,104 @@ document.addEventListener("DOMContentLoaded", function() {
         if (pickDate && dropDate && pickTime && dropTime) {
             const pickDateTime = `${pickDate}T${pickTime}`;
             const dropDateTime = `${dropDate}T${dropTime}`;
-
+        
             const pickDateObj = new Date(pickDateTime);
             const dropDateObj = new Date(dropDateTime);
-
+        
             // If both dates are valid and drop-off is after pick-up
-            if (pickDateObj && dropDateObj && pickDateObj < dropDateObj) {
-                const durationInMillis = dropDateObj - pickDateObj;
-                const durationInHours = durationInMillis / (1000 * 60 * 60);
+            if (pickDate && dropDate && pickTime && dropTime) {
+                const pickDateTime = `${pickDate}T${pickTime}`;
+                const dropDateTime = `${dropDate}T${dropTime}`;
             
-                let estimatedAmount;
+                const pickDateObj = new Date(pickDateTime);
+                const dropDateObj = new Date(dropDateTime);
             
-                // Get selected car name (e.g., from a dropdown or input)
-                const carType = document.getElementById('custom-carName').value;
+                // If both dates are valid and drop-off is after pick-up
+                if (pickDateObj && dropDateObj && pickDateObj < dropDateObj) {
+                    const durationInMillis = dropDateObj - pickDateObj;
+                    const durationInHours = durationInMillis / (1000 * 60 * 60);
+                    
+                    let estimatedAmount;
             
-                // Pricing logic based on selected car type
-                if (carType.includes('Kia Carens - MUV')) {
-                    // Kia Carens pricing
-                    if (durationInHours === 8) {
-                        estimatedAmount = 3000 + ' INR';
-                    } else if (durationInHours === 12) {
-                        estimatedAmount = 3500 + ' INR';
-                    } else if (durationInHours === 24) {
-                        estimatedAmount = 4000 + ' INR';
-                    } else if (durationInHours > 24) {
-                        const extraHours = durationInHours - 24;
-                        estimatedAmount = 4000 + (extraHours * 300) + ' INR'; // 300 INR for extra hours after 24
-                    } else {
-                        estimatedAmount = 'Must be 8hr, 12hr, or 24hr';
+                    // Get selected car name (e.g., from a dropdown or input)
+                    const carType = document.getElementById('custom-carName').value;
+            
+                    // Pricing logic based on selected car type
+                    const calculatePricing = (carType, durationInHours) => {
+                        let baseRate = 0;
+                        let hourlyRate = 0;
+                        let minDuration = 8;
+                        let maxDuration = 24;
+                        let twelvehrrate =0;
+                        // Pricing configuration
+                        if (carType.includes('Kia Carens - MUV')) {
+                            baseRate = 4000;// 24hr price
+                            twelvehrrate=3500;
+                            eighthrrate=3000;
+                            hourlyRate = 300; // Extra hour charge
+                        } else if (carType.includes('Mahindra Scorpio - SUV')) {
+                            baseRate = 3500; // 24hr price
+                            twelvehrrate=3000;
+                            eighthrrate=2500;
+                            hourlyRate = 300; // Extra hour charge
+                        } else if (carType.includes('Maruti Brezza - SUV')) {
+                            baseRate = 3200; // 24hr price
+                            twelvehrrate=2700;
+                            eighthrrate=2200;
+                            hourlyRate = 250; // Extra hour charge
+                        } else {
+                            baseRate = 2500; // Default 24hr price
+                            twelvehrrate=2000;
+                            eighthrrate=1500;
+                            hourlyRate = 200; // Default extra hour charge
+                        }
+            
+                        // Full day duration in hours
+                        const fullDayRate = baseRate;
+            
+                        // If the total duration is more than 24 hours, calculate full days and extra hours
+                        if (durationInHours >= 24) {
+                            const totalDays = Math.floor(durationInHours / 24); // Full days (e.g. 2 days, 3 days)
+                            const remainingHours = durationInHours % 24; // Remaining hours
+            
+                            estimatedAmount = totalDays * fullDayRate; // Total for full days
+            
+                            // Now handle remaining hours
+                            if (remainingHours > 0 && remainingHours < 8) {
+                                estimatedAmount += hourlyRate * remainingHours ; // Charge for 8hr block
+                            }else if (remainingHours == 8) {
+                                estimatedAmount += eighthrrate; // Charge for 12hr block
+                            } else if (remainingHours > 8 && remainingHours <= 12) {
+                                estimatedAmount += twelvehrrate; // Charge for 12hr block
+                            } else if (remainingHours > 12 && remainingHours <= 23) {
+                                estimatedAmount += baseRate ; // Charge for 24hr block
+                            }
+                        } else {
+                            // For durations less than a day (e.g., 8 hours, 12 hours)
+                            if (durationInHours == 8) {
+                                estimatedAmount = eighthrrate;
+                            } else if (durationInHours <= 12) {
+                                estimatedAmount = twelvehrrate;
+                            } else if (durationInHours <= 24) {
+                                estimatedAmount = baseRate ;
+                            }
+                        }
+            
+                        return estimatedAmount;
                     }
-                } else if (carType.includes('Mahindra Scorpio - SUV')) {
-                    // Mahindra Scorpio pricing
-                    if (durationInHours === 8) {
-                        estimatedAmount = 2500 + ' INR';
-                    } else if (durationInHours === 12) {
-                        estimatedAmount = 3000 + ' INR';
-                    } else if (durationInHours === 24) {
-                        estimatedAmount = 3500 + ' INR';
-                    } else if (durationInHours > 24) {
-                        const extraHours = durationInHours - 24;
-                        estimatedAmount = 3500 + (extraHours * 300) + ' INR'; // 250 INR for extra hours after 24
-                    } else {
-                        estimatedAmount = 'Must be 8hr, 12hr, or 24hr';
-                    }
-                }else if (carType.includes('Maruti Brezza - SUV')) {
-                    // Maruti Brezza pricing
-                    if (durationInHours === 8) {
-                        estimatedAmount = 2200 + ' INR';
-                    } else if (durationInHours === 12) {
-                        estimatedAmount = 2700 + ' INR';
-                    } else if (durationInHours === 24) {
-                        estimatedAmount = 3200 + ' INR';
-                    } else if (durationInHours > 24) {
-                        const extraHours = durationInHours - 24;
-                        estimatedAmount = 3200 + (extraHours * 250) + ' INR'; // 250 INR for extra hours after 24
-                    } else {
-                        estimatedAmount = 'Must be 8hr, 12hr, or 24hr';
-                    }
+            
+                    // Calculate the estimated amount
+                    estimatedAmount = calculatePricing(carType, durationInHours);
+            
+                    // Update the estimated amount field
+                    document.getElementById('estimated-amount').value = estimatedAmount + ' INR';
                 } else {
-                    // Default pricing for other cars (e.g., non-SUV or non-Kia car)
-                    if (durationInHours === 8) {
-                        estimatedAmount = 1500 + ' INR';
-                    } else if (durationInHours === 12) {
-                        estimatedAmount = 2000 + ' INR';
-                    } else if (durationInHours === 24) {
-                        estimatedAmount = 2500 + ' INR';
-                    } else if (durationInHours > 24) {
-                        const extraHours = durationInHours - 24;
-                        estimatedAmount = 2500 + (extraHours * 200) + ' INR'; // 200 INR for extra hours after 24
-                    } else {
-                        estimatedAmount = 'Must be 8hr, 12hr, or 24hr';
-                    }
+                    document.getElementById('estimated-amount').value = 'Please fill all fields';
                 }
-            
-                // Update the estimated amount field
-                document.getElementById('estimated-amount').value = estimatedAmount;
-            
-            } else {
-                document.getElementById('estimated-amount').value = 'Please fill all fields';
             }
+            
         }
+        
     }
 
     // Helper function to read files as base64
