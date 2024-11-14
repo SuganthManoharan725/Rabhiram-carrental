@@ -125,9 +125,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Get form data
         const name = document.getElementById('name').value;
-        const aadhar = document.getElementById('aadhar').value;
         const phone = document.getElementById('phone').value;
+        const alternative = document.getElementById('alternativephone').value;
         const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
         const pickDate = document.getElementById('pickupDate').value;
         const dropDate = document.getElementById('dropDate').value;
         const pickTime = document.getElementById('pickupTime').value;
@@ -144,9 +145,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const emailContent = `
             <h2>New Car Rental Request</h2>
             <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Aadhar Number:</strong> ${aadhar}</p>
             <p><strong>Phone Number:</strong> ${phone}</p>
+            <p><strong>Alternative Phone Number:</strong> ${alternative}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Address:</strong> ${address}</p>
             <p><strong>Pick-up Date:</strong> ${pickDate}</p>
             <p><strong>Drop-off Date:</strong> ${dropDate}</p>
             <p><strong>Pick-up Time:</strong> ${pickTime}</p>

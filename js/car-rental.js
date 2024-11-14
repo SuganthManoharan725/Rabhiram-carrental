@@ -95,9 +95,10 @@ function renderCarCards(carData) {
 function populateFormWithCarData(car) {
     // Populate the fields with data from the selected car
     document.getElementById('name').value = '';  // User will fill this
-    document.getElementById('aadhar').value = ''; // User will fill this
     document.getElementById('phone').value = '';  // User will fill this
+    document.getElementById('alternativephone').value = ''; // User will fill this
     document.getElementById('email').value = '';  // User will fill this
+    document.getElementById('address').value = '';
     document.getElementById('drivingLicense-file').value = '';  // User will upload this
     document.getElementById('aadhar-file').value = '';  // User will upload this
     document.getElementById('pan-file').value = '';  // User will upload this

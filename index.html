@@ -105,20 +105,25 @@
                       <label for="custom-name" class="label">Name</label>
                       <input type="text" class="form-control" id="custom-name" name="name" placeholder="Your Name" required>
                   </div>
-              
-                  <div class="form-group">
-                      <label for="custom-aadhar" class="label">Aadhar Number</label>
-                      <input type="text" class="form-control" id="custom-aadhar" name="aadhar" placeholder="Your Aadhar Number" required>
-                  </div>
-              
+                          
                   <div class="form-group">
                       <label for="custom-phone" class="label">Phone Number</label>
                       <input type="text" class="form-control" id="custom-phone" name="phone" placeholder="Your Phone Number" required>
                   </div>
 
                   <div class="form-group">
+                    <label for="custom-alternativephone" class="label">Alternative Phone Number</label>
+                    <input type="text" class="form-control" id="custom-alternativephone" name="alternativephone" placeholder="Your Alternative Number">
+                </div>
+
+                  <div class="form-group">
                     <label for="custom-email" class="label">Email Address</label>
                     <input type="text" class="form-control" id="custom-email" name="phone" placeholder="Your Email Address" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="custom-address" class="label">Present Address</label>
+                    <input type="text" class="form-control" id="custom-address" name="phone" placeholder="Your Present Address" required>
                   </div>
               
                   <div class="form-group">
@@ -176,6 +181,11 @@
                       <label for="estimated-amount" class="label">Estimated Amount</label>
                       <input type="text" class="form-control" id="estimated-amount" name="estimatedAmount" readonly>
                   </div>
+
+                  <div class="form-group" style="color: #f4f4f4;">
+                    <label for="custom-checkbox" class="label"></label>
+                    <input type="checkbox" class="" id="custom-checkbox" name="checkbox"> I have read above all terms and conditions and agree with all conditions
+                </div>
               
                   <div class="form-group">
                       <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
@@ -275,17 +285,25 @@
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
             </div>
-            <div class="mb-3">
-                <label for="aadhar" class="form-label">Aadhar Number</label>
-                <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="Enter your Aadhar number" required>
-            </div>
+            
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
             </div>
+
+            <div class="mb-3">
+              <label for="alternativephone" class="form-label">Alternative Phone Number</label>
+              <input type="text" class="form-control" id="alternativephone" name="alternativephone" placeholder="Your Alternative Number">
+            </div>
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Present Address</label>
+              <input type="text" class="form-control" id="address" name="phone" placeholder="Your Present Address" required>
             </div>
 
             <div class="mb-3">
@@ -340,6 +358,10 @@
               <label for="estimate-amount" class="form-label">Estimated Amount</label>
               <input type="text" class="form-control" id="estimate-amount" name="estimatedAmount" readonly>
           </div>
+
+          <div class="mb-3" style="color: #f4f4f4;">
+             <input type="checkbox" class="" id="checkbox" name="checkbox"> I have read above all terms and conditions and agree with all conditions
+        </div>
 
         </form>
         <div class="d-flex justify-content-between">
@@ -626,29 +648,29 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/home-car-rental.js"></script>
-  <script src="js/appoitmentbookingmainpage.js"></script> 
-  <script src="js/carpopupbooking.js"></script> 
+  <script src="js/jquery.min.js" defer></script>
+  <script src="js/jquery-migrate-3.0.1.min.js" defer></script>
+  <script src="js/popper.min.js" defer></script>
+  <script src="js/bootstrap.min.js" defer></script>
+  <script src="js/jquery.easing.1.3.js" defer></script>
+  <script src="js/jquery.waypoints.min.js" defer></script>
+  <script src="js/jquery.stellar.min.js" defer></script>
+  <script src="js/owl.carousel.min.js" defer></script>
+  <script src="js/jquery.magnific-popup.min.js" defer></script>
+  <script src="js/aos.js" defer></script>
+  <script src="js/jquery.animateNumber.min.js" defer></script>
+  <script src="js/bootstrap-datepicker.js" defer></script>
+  <script src="js/jquery.timepicker.min.js" defer></script>
+  <script src="js/scrollax.min.js" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+  <script src="js/google-map.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/home-car-rental.js" defer></script>
+  <script src="js/appoitmentbookingmainpage.js" defer></script> 
+  <script src="js/carpopupbooking.js" defer></script> 
   </body>
 </html>
