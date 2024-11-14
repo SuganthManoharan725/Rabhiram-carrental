@@ -10259,6 +10259,24 @@ button[type="button"].close-btn:hover {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
+.popup-form {
+  display: none; /* Hide the popup by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #eaeaea;
+  box-shadow: 0px 0px 30px 0px rgba(2, 2, 2, 1);
+  background-color: rgba(51, 51, 51, 1);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 80%; /* Make it responsive */
+  max-width: 500px; /* Max width */
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
