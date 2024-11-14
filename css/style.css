@@ -10267,3 +10267,7 @@ button[type="button"].close-btn:hover {
     font-weight: 700;
        }
   }
+
+.company-name a {
+  color: #dc3545;
+}
