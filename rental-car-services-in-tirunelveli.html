@@ -119,65 +119,95 @@
     			<div class="col-md-12	featured-top">
     				<div class="row no-gutters">
 	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="#" id="requestForm" class="request-form ftco-animate bg-primary" style="margin-top: 250px;">
-		          		<h2>Make your trip</h2>
-			    				<div class="form-group">
-			    					<label for="" class="label">Name</label>
-			    					<input type="text" class="form-control" id="custom-name" placeholder="Your Name">
-			    				</div>
-			    				<div class="form-group">
-			    					<label for="" class="label">Aadhar Number</label>
-			    					<input type="text" class="form-control" id="custom-aadhar" placeholder="Your Aadhar Number">
-			    				</div>
+	  						<form action="#" id="requestForm" class="request-form ftco-animate bg-primary" method="POST" enctype="multipart/form-data">
+                  <h2>Make your trip</h2>
+                  
+                  <!-- Existing fields... -->
+                  
                   <div class="form-group">
-			    					<label for="" class="label">Phone Number</label>
-			    					<input type="number" class="form-control" id="custom-phone" placeholder="Your Phone Number">
-			    				</div>
+                      <label for="custom-name" class="label">Name</label>
+                      <input type="text" class="form-control" id="custom-name" name="name" placeholder="Your Name" required>
+                  </div>
+              
                   <div class="form-group">
-			    					<label for="" class="label">Email</label>
-			    					<input type="text" class="form-control" id="custom-email" placeholder="Your Email Address">
-			    				</div>
-			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label for="" class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="custom-pickDate" placeholder="Date">
-			              </div>
-			              <div class="form-group ml-2">
-			                <label for="" class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="custom-dropDate" placeholder="Date">
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="" class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="custom-pickTime" placeholder="Time">
-		              </div>
+                      <label for="custom-aadhar" class="label">Aadhar Number</label>
+                      <input type="text" class="form-control" id="custom-aadhar" name="aadhar" placeholder="Your Aadhar Number" required>
+                  </div>
+              
                   <div class="form-group">
-                    <label for="carName" class="label">Car Name</label>
-                    <select class="form-control" id="custom-carName" name="carName" required>
-                        <option value="Swift Dzire">Swift Dzire</option>
-                        <option value="Swift Dzire - Sedan">Swift Dzire -  Sedan</option>
-                        <option value="Hyundai i20">Hyundai i20</option>
-                        <option value="Hyundai i20 - Premium">Hyundai i20 - Premium</option>
-                        <option value="Mahindra Scorpio - SUV">Mahindra Scorpio - SUV</option>                   
-                        <option value="Maruti Brezza - SUV">Maruti Brezza - SUV</option>
-                        <option value="Kia Carens - MUV">Kia Carens - MUV</option>
-                        <option value="Renauld Kwid Climber">Renauld Kwid Climber</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-			            <div class="form-group">
-			              <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
-			            </div>
-                  <!-- Success Message -->
-                <div id="AppointmentsuccessMessage" style="display:none; color: #fff;">
-                  Your request has been submitted successfully! We will get back to you shortly.
-                </div>
-                <!-- Error Message -->
-                <div id="AppointmenterrorMessage" style="display:none; color: #343a40;">
-                  There was an error submitting your request. Please try again later.
-                </div>
-			    			</form>
-                
+                      <label for="custom-phone" class="label">Phone Number</label>
+                      <input type="text" class="form-control" id="custom-phone" name="phone" placeholder="Your Phone Number" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="custom-email" class="label">Email Address</label>
+                    <input type="text" class="form-control" id="custom-email" name="phone" placeholder="Your Email Address" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-drivingLicense" class="label">Driving License</label>
+                      <input type="file" class="form-control" id="custom-drivingLicense-file" name="drivingLicense" accept=".jpg,.jpeg,.png,.pdf" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-aadhar-file" class="label">Upload Aadhar PDF</label>
+                      <input type="file" class="form-control" id="custom-aadhar-file" name="aadharFile" accept=".jpg,.jpeg,.png,.pdf" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-pan-file" class="label">Upload PAN PDF</label>
+                      <input type="file" class="form-control" id="custom-pan-file" name="panFile" accept=".jpg,.jpeg,.png,.pdf" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-carName" class="label">Car Name</label>
+                      <select class="form-control" id="custom-carName" name="carName" required>
+                          <option value="Swift Dzire">Swift Dzire</option>
+                          <option value="Swift Dzire - Sedan">Swift Dzire - Sedan</option>
+                          <option value="Hyundai i20">Hyundai i20</option>
+                          <option value="Hyundai i20 - Premium">Hyundai i20 - Premium</option>
+                          <option value="Mahindra Scorpio - SUV">Mahindra Scorpio - SUV</option>                   
+                          <option value="Maruti Brezza - SUV">Maruti Brezza - SUV</option>
+                          <option value="Kia Carens - MUV">Kia Carens - MUV</option>
+                          <option value="Renault Kwid Climber">Renault Kwid Climber</option>
+                          <option value="Other">Other</option>
+                      </select>
+                  </div>
+              
+                  <div class="d-flex">
+                      <div class="form-group mr-2">
+                          <label for="custom-pickDate" class="label">Pick-up date</label>
+                          <input type="date" class="form-control" id="custom-pickDate" name="pickDate" required>
+                      </div>
+                      <div class="form-group ml-2">
+                          <label for="custom-dropDate" class="label">Drop-off date</label>
+                          <input type="date" class="form-control" id="custom-dropDate" name="dropDate" required>
+                      </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-pickTime" class="label">Pick-up time</label>
+                      <input type="time" class="form-control" id="custom-pickTime" name="pickTime" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="custom-dropTime" class="label">Drop-off time</label>
+                      <input type="time" class="form-control" id="custom-dropTime" name="dropTime" required>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="estimated-amount" class="label">Estimated Amount</label>
+                      <input type="text" class="form-control" id="estimated-amount" name="estimatedAmount" readonly>
+                  </div>
+              
+                  <div class="form-group">
+                      <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+                  </div>
+                                 
+                  <div id="AppointmentsuccessMessage" style="display:none; color: #fff;">Car booked successfully! We will get back to you shortly.</div>
+                  <div id="AppointmenterrorMessage" style="display:none; color: #343a40;">There was an error booking your car. Please try again later.</div>
+              </form>
+                           
 	  					</div>
 	  					<div class="col-md-8 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
