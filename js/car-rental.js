@@ -94,16 +94,19 @@ function renderCarCards(carData) {
 // Function to populate the static form with car-specific data
 function populateFormWithCarData(car) {
     // Populate the fields with data from the selected car
-    document.getElementById('carName').value = car.name;  // Car name from YAML
-    document.getElementById('pickupDate').value = ''; // Leave it empty or set default value
-    document.getElementById('dropDate').value = '';   // Same as above
-    document.getElementById('pickupTime').value = '';  // Same as above
-
-    // Populate other form fields (optional)
-    document.getElementById('name').value = '';  // Leave empty for user to fill
-    document.getElementById('aadhar').value = ''; // Same
-    document.getElementById('phone').value = '';  // Same
-    document.getElementById('email').value = '';  // Same
+    document.getElementById('name').value = '';  // User will fill this
+    document.getElementById('aadhar').value = ''; // User will fill this
+    document.getElementById('phone').value = '';  // User will fill this
+    document.getElementById('email').value = '';  // User will fill this
+    document.getElementById('drivingLicense-file').value = '';  // User will upload this
+    document.getElementById('aadhar-file').value = '';  // User will upload this
+    document.getElementById('pan-file').value = '';  // User will upload this
+    
+    // Optionally, set default values for dates and times
+    document.getElementById('pickupDate').value = '';  // Leave it empty or set default value if necessary
+    document.getElementById('dropDate').value = '';    // Leave it empty or set default value if necessary
+    document.getElementById('pickupTime').value = '';  // Leave it empty or set default value if necessary
+    document.getElementById('dropTime').value = '';    // Leave it empty or set default value if necessary
 }
 
 // Close the popup when the close button is clicked

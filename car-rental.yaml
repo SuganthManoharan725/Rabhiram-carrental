@@ -149,7 +149,7 @@ cars:
     price: 3500
     hoursrate:
       - label: "08hr"
-        value: "3500rs"
+        value: "2500rs"
       - label: "12hr"
         value: "3000rs"
       - label: "Full Day"
@@ -286,6 +286,9 @@ cars:
         icon: "fas fa-fire"
     booking_options:
       message_phone: "tel:+91 9791720689"
+
+
+
     
 
   

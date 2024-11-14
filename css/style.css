@@ -8369,7 +8369,7 @@ h1, h2, h3, h4, h5,
     height: 850px; }
   @media (max-width: 991.98px) {
     .hero-wrap {
-      height: 1150px; }
+      height: 590px; }
       .hero-wrap .overlay {
         height: 1150px; } }
   .hero-wrap.hero-wrap-2 {
@@ -9962,10 +9962,7 @@ textarea.form-control {
      width: 150px;
     }
 
-    .hero-wrap {
-      position: relative;
-      height: 180vh; /* Make sure the video section takes the full viewport height */
-    }
+    
 
     
     .hero-wrap .video-fluid {
@@ -9994,6 +9991,7 @@ textarea.form-control {
       padding: 20px;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Adds a slight shadow to the text */
+      margin: 0px 0px 0px 0px;
     }
     
 
@@ -10230,6 +10228,10 @@ button[type="button"].close-btn:hover {
     background-color: #e53935;
 }
 @media (max-width: 768px) {
+  .hero-wrap {
+    position: relative;
+    height: 100vh;
+  }
   .hero-wrap.hero-wrap-2 {
     height:294px !important;
     position: relative;
@@ -10237,4 +10239,31 @@ button[type="button"].close-btn:hover {
   .herotxt {
     margin-bottom: 262px; 
   }
+  .hero-wrap .text {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
 }
+.slider-text {
+  height: 590px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .slider-text {
+    height: 650px;
+}
+}
+
+@media (max-width: 768px) {
+   .slider-text h1 {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.1;
+    font-weight: 700;
+       }
+  }
