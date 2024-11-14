@@ -116,7 +116,7 @@ document.getElementById('closeBtn').addEventListener('click', () => {
 });
 
 // Submit the popup when the close button is clicked
-document.getElementById('submitBtn').addEventListener('click', () => {
+document.getElementById('submitBtn2').addEventListener('click', () => {
     const bookingForm = document.getElementById('bookingForm');
   
   // Simulate the form submit event

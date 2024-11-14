@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const dropTime = document.getElementById('dropTime').value;
 
         // Check if all fields are filled
-         // If both dates are valid and drop-off is after pick-up
-         if (pickDate && dropDate && pickTime && dropTime) {
+        if (pickDate && dropDate && pickTime && dropTime) {
             const pickDateTime = `${pickDate}T${pickTime}`;
             const dropDateTime = `${dropDate}T${dropTime}`;
         
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 let estimatedAmount;
         
-                // Get selected car name (e.g., from a dropdown or input)
+                // Get selected car name
                 const carType = document.getElementById('carName').value;
         
                 // Pricing logic based on selected car type
@@ -36,27 +35,29 @@ document.addEventListener("DOMContentLoaded", function() {
                     let hourlyRate = 0;
                     let minDuration = 8;
                     let maxDuration = 24;
-                    let twelvehrrate =0;
+                    let twelvehrrate = 0;
+                    let eighthrrate = 0;
+        
                     // Pricing configuration
                     if (carType.includes('Kia Carens - MUV')) {
-                        baseRate = 4000;// 24hr price
-                        twelvehrrate=3500;
-                        eighthrrate=3000;
+                        baseRate = 4000; // 24hr price
+                        twelvehrrate = 3500;
+                        eighthrrate = 3000;
                         hourlyRate = 300; // Extra hour charge
                     } else if (carType.includes('Mahindra Scorpio - SUV')) {
                         baseRate = 3500; // 24hr price
-                        twelvehrrate=3000;
-                        eighthrrate=2500;
+                        twelvehrrate = 3000;
+                        eighthrrate = 2500;
                         hourlyRate = 300; // Extra hour charge
                     } else if (carType.includes('Maruti Brezza - SUV')) {
                         baseRate = 3200; // 24hr price
-                        twelvehrrate=2700;
-                        eighthrrate=2200;
+                        twelvehrrate = 2700;
+                        eighthrrate = 2200;
                         hourlyRate = 250; // Extra hour charge
                     } else {
                         baseRate = 2500; // Default 24hr price
-                        twelvehrrate=2000;
-                        eighthrrate=1500;
+                        twelvehrrate = 2000;
+                        eighthrrate = 1500;
                         hourlyRate = 200; // Default extra hour charge
                     }
         
@@ -65,20 +66,20 @@ document.addEventListener("DOMContentLoaded", function() {
         
                     // If the total duration is more than 24 hours, calculate full days and extra hours
                     if (durationInHours >= 24) {
-                        const totalDays = Math.floor(durationInHours / 24); // Full days (e.g. 2 days, 3 days)
+                        const totalDays = Math.floor(durationInHours / 24); // Full days
                         const remainingHours = durationInHours % 24; // Remaining hours
         
                         estimatedAmount = totalDays * fullDayRate; // Total for full days
         
                         // Now handle remaining hours
                         if (remainingHours > 0 && remainingHours < 8) {
-                            estimatedAmount += hourlyRate * remainingHours ; // Charge for 8hr block
-                        }else if (remainingHours == 8) {
-                            estimatedAmount += eighthrrate; // Charge for 12hr block
+                            estimatedAmount += hourlyRate * remainingHours; // Charge for extra hours
+                        } else if (remainingHours == 8) {
+                            estimatedAmount += eighthrrate; // Charge for 8hr block
                         } else if (remainingHours > 8 && remainingHours <= 12) {
                             estimatedAmount += twelvehrrate; // Charge for 12hr block
                         } else if (remainingHours > 12 && remainingHours <= 23) {
-                            estimatedAmount += baseRate ; // Charge for 24hr block
+                            estimatedAmount += baseRate; // Charge for 24hr block
                         }
                     } else {
                         // For durations less than a day (e.g., 8 hours, 12 hours)
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         } else if (durationInHours <= 12) {
                             estimatedAmount = twelvehrrate;
                         } else if (durationInHours <= 24) {
-                            estimatedAmount = baseRate ;
+                            estimatedAmount = baseRate;
                         }
                     }
         
@@ -141,6 +142,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const panFile = document.getElementById('pan-file').files[0];
         const drivingLicenseFile = document.getElementById('drivingLicense-file').files[0];
 
+        // Change button to loading state
+        const submitButton = document.getElementById('submitBtn2');
+        submitButton.disabled = true; // Disable the submit button
+        submitButton.innerHTML = 'Loading... <div class="spinner-border spinner-border-sm" role="status"></div>'; // Show spinner
+
         // Prepare email content
         const emailContent = `
             <h2>New Car Rental Request</h2>
@@ -162,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (aadharFile) {
             const aadharBase64 = await readFileAsBase64(aadharFile);
             attachments.push({
-                name: aadharFile.name,  // Corrected to 'name'
+                name: aadharFile.name,
                 content: aadharBase64,
                 contentType: aadharFile.type,
             });
@@ -171,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (panFile) {
             const panBase64 = await readFileAsBase64(panFile);
             attachments.push({
-                name: panFile.name,  // Corrected to 'name'
+                name: panFile.name,
                 content: panBase64,
                 contentType: panFile.type,
             });
@@ -180,29 +186,29 @@ document.addEventListener("DOMContentLoaded", function() {
         if (drivingLicenseFile) {
             const drivingLicenseBase64 = await readFileAsBase64(drivingLicenseFile);
             attachments.push({
-                name: drivingLicenseFile.name,  // Corrected to 'name'
+                name: drivingLicenseFile.name,
                 content: drivingLicenseBase64,
                 contentType: drivingLicenseFile.type,
             });
         }
 
-        // Create JSON payload for Sendinblue API
-        const emailPayload = {
-            sender: { email: 'romansuganth1762001@gmail.com' },
-            to: [{ email: 'romansuganth1762001@gmail.com' }],
-            subject: 'New Car Rental Request',
-            htmlContent: emailContent,
-            attachment: attachments,  // Corrected attachment key
-        };
-
         // Send email via Sendinblue API
         try {
+            const emailPayload = {
+                sender: { email: 'romansuganth1762001@gmail.com' },
+                to: [{ email: 'romansuganth1762001@gmail.com' }],
+                subject: 'New Car Rental Request',
+                htmlContent: emailContent,
+                attachment: attachments,
+            };
+
             const response = await axios.post('https://api.sendinblue.com/v3/smtp/email', emailPayload, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'api-key': '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' // Replace with your Sendinblue API key
-                }
+                    'api-key': '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', // Replace with your Sendinblue API key
+                },
             });
+
             // Show success message
             document.getElementById('PopupAppointmenterrorMessage').style.display = 'none';
             document.getElementById('PopupAppointmentsuccessMessage').style.display = 'block';
@@ -212,11 +218,10 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('PopupAppointmentsuccessMessage').style.display = 'none';
             document.getElementById('PopupAppointmenterrorMessage').style.display = 'block';
             console.error('Error sending email:', error);
-
-            // Log the error response
-            if (error.response) {
-                console.error('Error Response:', error.response.data);
-            }
+        } finally {
+            // Reset button after success or failure
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit'; // Restore original text
         }
     });
 });

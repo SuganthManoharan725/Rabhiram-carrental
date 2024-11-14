@@ -132,7 +132,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Form submission logic
     document.getElementById('requestForm').addEventListener('submit', async function(event) {
         event.preventDefault(); // Prevent the default form submission
-
+    
+        // Get the submit button
+        const submitButton = document.getElementById('submitBtn');
+    
+        // Change button text to "Loading..." and add spinner
+        submitButton.value = "Loading..."; // Update button text to "Loading..."
+        submitButton.disabled = true; // Disable the button to prevent multiple clicks
+    
+        // Show the loading spinner inside the button (if needed)
+        submitButton.innerHTML = 'Loading... <div class="spinner-border spinner-border-sm" role="status"></div>';
+        
         // Get form data
         const name = document.getElementById('custom-name').value;
         const phone = document.getElementById('custom-phone').value;
@@ -145,12 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const dropTime = document.getElementById('custom-dropTime').value;
         const carName = document.getElementById('custom-carName').value;
         const estimatedAmount = document.getElementById('estimated-amount').value;
-
-        // Get file uploads
-        const aadharFile = document.getElementById('custom-aadhar-file').files[0];
-        const panFile = document.getElementById('custom-pan-file').files[0];
-        const drivingLicenseFile = document.getElementById('custom-drivingLicense-file').files[0];
-
+    
         // Prepare email content
         const emailContent = `
             <h2>New Car Rental Request</h2>
@@ -158,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p><strong>Phone Number:</strong> ${phone}</p>
             <p><strong>Alternative Phone Number:</strong> ${AlternativeNumber}</p>
             <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Adress:</strong> ${homeAddress}</p>
+            <p><strong>Address:</strong> ${homeAddress}</p>
             <p><strong>Pick-up Date:</strong> ${pickDate}</p>
             <p><strong>Drop-off Date:</strong> ${dropDate}</p>
             <p><strong>Pick-up Time:</strong> ${pickTime}</p>
@@ -166,53 +171,21 @@ document.addEventListener("DOMContentLoaded", function() {
             <p><strong>Car Selected:</strong> ${carName}</p>
             <p><strong>Estimated Amount:</strong> ${estimatedAmount}</p>
         `;
-
-        // Prepare attachments (convert to base64)
-        const attachments = [];
-        if (aadharFile) {
-            const aadharBase64 = await readFileAsBase64(aadharFile);
-            attachments.push({
-                name: aadharFile.name,  // Corrected to 'name'
-                content: aadharBase64,
-                contentType: aadharFile.type,
-            });
-        }
-
-        if (panFile) {
-            const panBase64 = await readFileAsBase64(panFile);
-            attachments.push({
-                name: panFile.name,  // Corrected to 'name'
-                content: panBase64,
-                contentType: panFile.type,
-            });
-        }
-
-        if (drivingLicenseFile) {
-            const drivingLicenseBase64 = await readFileAsBase64(drivingLicenseFile);
-            attachments.push({
-                name: drivingLicenseFile.name,  // Corrected to 'name'
-                content: drivingLicenseBase64,
-                contentType: drivingLicenseFile.type,
-            });
-        }
-
-        // Create JSON payload for Sendinblue API
-        const emailPayload = {
-            sender: { email: 'romansuganth1762001@gmail.com' },
-            to: [{ email: 'romansuganth1762001@gmail.com' }],
-            subject: 'New Car Rental Request',
-            htmlContent: emailContent,
-            attachment: attachments,  // Corrected attachment key
-        };
-
-        // Send email via Sendinblue API
+    
         try {
-            const response = await axios.post('https://api.sendinblue.com/v3/smtp/email', emailPayload, {
+            // Send the email via the API (example with axios)
+            const response = await axios.post('https://api.sendinblue.com/v3/smtp/email', {
+                sender: { email: 'romansuganth1762001@gmail.com' },
+                to: [{ email: 'romansuganth1762001@gmail.com' }],
+                subject: 'New Car Rental Request',
+                htmlContent: emailContent,
+            }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'api-key': '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' // Replace with your Sendinblue API key
-                }
+                    'api-key': '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', // Replace with your Sendinblue API key
+                },
             });
+    
             // Show success message
             document.getElementById('AppointmenterrorMessage').style.display = 'none';
             document.getElementById('AppointmentsuccessMessage').style.display = 'block';
@@ -222,11 +195,11 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('AppointmentsuccessMessage').style.display = 'none';
             document.getElementById('AppointmenterrorMessage').style.display = 'block';
             console.error('Error sending email:', error);
-
-            // Log the error response
-            if (error.response) {
-                console.error('Error Response:', error.response.data);
-            }
+        } finally {
+            // Reset the button text and enable it again after the submission completes
+            submitButton.innerHTML = 'Rent A Car Now'; // Revert button text back
+            submitButton.disabled = false; // Enable the button again
         }
     });
+    
 });

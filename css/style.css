@@ -10298,3 +10298,19 @@ button[type="button"].close-btn:hover {
 .company-name a {
   color: #dc3545;
 }
+
+.spinner-border {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.25em solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
