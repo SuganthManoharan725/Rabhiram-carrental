@@ -321,6 +321,29 @@
 	$('#time_pick').timepicker();
 
 
+	// Disable right-click (Context Menu)
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+// Disable F12 key (Developer Tools)
+document.addEventListener('keydown', function(event) {
+    if (event.keyCode == 123) { // F12
+        event.preventDefault();
+    }
+    // Disable Ctrl+Shift+I (Developer Tools)
+    if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Ctrl + Shift + I
+        event.preventDefault();
+    }
+    // Disable Ctrl+Shift+J (Console)
+    if (event.ctrlKey && event.shiftKey && event.keyCode == 74) { // Ctrl + Shift + J
+        event.preventDefault();
+    }
+    // Disable Ctrl+Shift+C (Inspector)
+    if (event.ctrlKey && event.shiftKey && event.keyCode == 67) { // Ctrl + Shift + C
+        event.preventDefault();
+    }
+});
 
 })(jQuery);
 
